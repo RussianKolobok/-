@@ -1,0 +1,41 @@
+# -*- coding: utf-8 -*-
+from tkinter import *  
+
+
+def tablitsa():
+    lbl = Label(window, text="Дата")  
+    lbl.grid(column=0, row=0)
+    lbl = Label(window, text="Контора 1")  
+    lbl.grid(column=1, row=0)
+    lbl = Label(window, text="Контора 2")  
+    lbl.grid(column=2, row=0)
+    lbl = Label(window, text="Общая ставка")  
+    lbl.grid(column=3, row=0)
+    lbl = Label(window, text="Прибыль")  
+    lbl.grid(column=4, row=0)
+    lbl = Label(window, text="%")  
+    lbl.grid(column=5, row=0)
+    lbl = Label(window, text="Итог")  
+    lbl.grid(column=6, row=0)
+    for i in range (1,31):
+        for j in range(7):
+            lbl = Label(window, text="*")  
+            lbl.grid(column=j, row=i)    
+
+def inp():
+    while True:
+        print('Введите координаты ячейки (столбец строка)')
+        coords = list(map(int,input().split()))
+        print('Введите значение для ячейки '+"("+str(coords[0])+" "+str(coords[1])+")" )
+        staff = input()
+        lbl = Label(window, text=staff)  
+        lbl.grid(column = coords[0], row = coords[1])
+        window.update()
+
+window = Tk()
+window.geometry('500x700')
+window.title("Название окна")
+tablitsa()
+window.update()
+inp()
+window.mainloop()
